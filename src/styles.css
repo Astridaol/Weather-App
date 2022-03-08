@@ -61,8 +61,11 @@ h4 {
   font-style: italic;
 }
 
-span {
+#buttonPin {
   margin-left: 300px;
+}
+#humidity {
+  margin-left: 18px;
 }
 
 p {

@@ -34,6 +34,10 @@ function showTemperatureName(response) {
   weatherDescription = weatherDescription.toUpperCase();
   let h3 = document.querySelector("#weatherDescription");
   h3.innerHTML = `${weatherDescription}`;
+
+  let humidityDescription = response.data.main.humidity;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `${humidityDescription}%`;
 }
 
 function connectionPoint(event) {
