@@ -1,0 +1,130 @@
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+  padding: 50px;
+  margin-top: 60px;
+  width: 900px;
+  height: 700px;
+  border-radius: 20px;
+  background-color: #c7b299;
+  box-shadow: 2px 4px 5px rgb(173 173 175 / 80%);
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/029/original/BackgroundWeatherApp5Grad.jpg?1643565630");
+}
+
+.searchTool {
+  text-align: center;
+}
+
+#buttonPin {
+  border-radius: 50px;
+  border-color: #a67c52;
+  border-style: solid;
+  position: relative;
+  top: -30px;
+  left: -476px;
+}
+
+#buttonPin:hover {
+  box-shadow: 2px 2px 10px #f15a24;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  color: whitesmoke;
+  margin-top: -8px;
+}
+
+h1 {
+  font-size: 90px;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 105px;
+  text-align: right;
+}
+
+h3 {
+  font-size: 19px;
+}
+
+h4 {
+  font-size: 17px;
+  font-style: italic;
+}
+
+span {
+  margin-left: 300px;
+}
+
+p {
+  text-align: right;
+}
+
+.col-1 {
+  text-align: center;
+}
+
+a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f15a24;
+  font-weight: 600;
+}
+
+.col-4 {
+  text-align: center;
+}
+
+.col-8 {
+  text-align: center;
+  border-radius: 25px;
+  border-color: #a67c52;
+  border-style: solid;
+}
+
+.iconWeatherToday {
+  color: #f15a24;
+  font-size: 130px;
+}
+
+.iconWeatherFuture {
+  color: #ff713d;
+  font-size: 30px;
+}
+
+.futureWeather {
+  font-size: 15px;
+  margin-top: 70px;
+  text-align: center;
+  background-color: whitesmoke;
+  padding: 8px;
+  border-radius: 25px;
+}
+
+.searchButton {
+  border-radius: 25px;
+  border-color: #a67c52;
+  border-style: solid;
+}
+
+.footer a {
+  display: block;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  padding: 40px;
+  font-size: 12px;
+}
