@@ -21,7 +21,7 @@ newDate.innerHTML = `${day} ${hour}: ${minutes}`;
 
 // Connection API
 
-function showTemperatureName(response) {
+function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let displayTemp = document.querySelector("#displayTemp");
   displayTemp.innerHTML = `${temperature}`;
@@ -35,7 +35,7 @@ function showTemperatureName(response) {
   let h3 = document.querySelector("#weatherDescription");
   h3.innerHTML = `${weatherDescription}`;
 
-  let precipitationDescription = response.data.weather[0].main;
+  let precipitationDescription = response.data.weather.main;
   let precipitationElement = document.querySelector("#precipitation");
   precipitationElement.innerHTML = `${precipitationDescription}`;
 
@@ -55,7 +55,7 @@ function connectionPoint(event) {
   city.innerHTML = cityResult.value;
   let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityResult.value}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperatureName);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 //StartingTempNameCirencester
@@ -64,7 +64,7 @@ function StartingTemp(position) {
   let Cirenlongitude = -1.9648097;
   let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?&lat=${Cirenlatitude}&lon=${Cirenlongitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperatureName);
+  axios.get(apiUrl).then(showTemperature);
 }
 StartingTemp();
 
@@ -75,7 +75,7 @@ function showPlaceTemp(position) {
   let longitude = position.coords.longitude;
   let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?&lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperatureName);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function navigatorActioning(event) {
