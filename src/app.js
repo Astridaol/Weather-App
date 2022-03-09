@@ -35,9 +35,9 @@ function showTemperature(response) {
   let h3 = document.querySelector("#weatherDescription");
   h3.innerHTML = `${weatherDescription}`;
 
-  let precipitationDescription = response.data.weather.main;
-  let precipitationElement = document.querySelector("#precipitation");
-  precipitationElement.innerHTML = `${precipitationDescription}`;
+  let skyDescription = response.data.weather[0].main;
+  let skyElement = document.querySelector("#sky");
+  skyElement.innerHTML = `${skyDescription}`;
 
   let humidityDescription = response.data.main.humidity;
   let humidityElement = document.querySelector("#humidity");
@@ -46,6 +46,12 @@ function showTemperature(response) {
   let windDescription = Math.round(response.data.wind.speed);
   let windElement = document.querySelector("#wind");
   windElement.innerHTML = `${windDescription}% Km/h`;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function connectionPoint(event) {

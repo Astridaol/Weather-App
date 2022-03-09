@@ -98,9 +98,8 @@ a:hover {
   border-style: solid;
 }
 
-.iconWeatherToday {
+img .iconWeatherToday {
   color: #f15a24;
-  font-size: 130px;
 }
 
 .iconWeatherFuture {
