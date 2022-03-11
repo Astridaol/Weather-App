@@ -98,8 +98,8 @@ a:hover {
   border-style: solid;
 }
 
-img .iconWeatherToday {
-  color: #f15a24;
+img {
+  position: absolute;
 }
 
 .iconWeatherFuture {
