@@ -1,5 +1,10 @@
 body {
   font-family: "Quicksand", sans-serif;
+  background: url("../img/BackgroundUnder.svg");
+  background-position: center 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .container {
@@ -11,7 +16,7 @@ body {
   height: 700px;
   border-radius: 20px;
   background-color: #c7b299;
-  box-shadow: 2px 4px 5px rgb(173 173 175 / 80%);
+  box-shadow: 4px 4px 5px rgba(130, 130, 131, 0.8);
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/026/029/original/BackgroundWeatherApp5Grad.jpg?1643565630");
 }
 
