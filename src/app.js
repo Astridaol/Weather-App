@@ -24,7 +24,9 @@ newDate.innerHTML = `${day} ${hour}: ${minutes}`;
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let displayTemp = document.querySelector("#displayTemp");
-  displayTemp.innerHTML = `${temperature}`;
+  displayTemp.innerHTML = `${temperature}` + "°C";
+
+  celsiusTemperature = response.data.main.temp;
 
   let cityNameCurrent = response.data.name;
   let h1 = document.querySelector("h1");
@@ -54,25 +56,29 @@ function showTemperature(response) {
   );
 }
 
-function connectionPoint(event) {
-  event.preventDefault();
-  let city = document.querySelector("#cityName");
-  let cityResult = document.querySelector("#searchResult");
-  city.innerHTML = cityResult.value;
+function search(city) {
   let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityResult.value}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
-//StartingTempNameCirencester
-function StartingTemp(position) {
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#searchResult");
+  search(cityInputElement.value);
+}
+
+search();
+
+//DefaultTempName
+function defaultTemp(position) {
   let Cirenlatitude = 51.7197711;
   let Cirenlongitude = -1.9648097;
   let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?&lat=${Cirenlatitude}&lon=${Cirenlongitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
-StartingTemp();
+defaultTemp();
 
 //CurrentInformation
 
@@ -89,26 +95,30 @@ function navigatorActioning(event) {
   navigator.geolocation.getCurrentPosition(showPlaceTemp);
 }
 
-function showCelsius(event) {
-  event.preventDefault();
-
-  let displayTemp = document.querySelector("#displayTemp");
-  displayTemp.innerHTML = 100;
-}
+//Changing Temperature Units
 
 function showFahrenheit(event) {
   event.preventDefault();
-  let displayTempTwo = document.querySelector("#displayTemp");
-  displayTempTwo.innerHTML = (100 * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#displayTemp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature) + "°F";
 }
 
-let celciusLink = document.querySelector("#CTemp");
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#displayTemp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°C";
+}
+
+let celsiusTemperature = null;
+
+let celsiusLink = document.querySelector("#CTemp");
 let FahrenheitLink = document.querySelector("#FTemp");
-celciusLink.addEventListener("click", showCelsius);
+celsiusLink.addEventListener("click", showCelsius);
 FahrenheitLink.addEventListener("click", showFahrenheit);
 
 let cityFormButton = document.querySelector("#cityNameForm");
-cityFormButton.addEventListener("submit", connectionPoint);
+cityFormButton.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#buttonPin");
 button.addEventListener("click", navigatorActioning);
