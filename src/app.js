@@ -19,6 +19,31 @@ let minutes = now.getMinutes();
 
 newDate.innerHTML = `${day} ${hour}: ${minutes}`;
 
+// Forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thrusday", "Friday", "Saturday", "Sunday", "Monday"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `      
+          <div class="col-2">
+            <div class="weather-forecast-date">${day}</div>
+            <i class="fas fa-cloud iconWeatherFuture"></i>
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">10°</span>
+              <span class="weather-forecast-temperature-min">8°</span>
+            </div>
+          </div>
+ `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // Connection API
 
 function showTemperature(response) {
@@ -122,3 +147,5 @@ cityFormButton.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#buttonPin");
 button.addEventListener("click", navigatorActioning);
+
+displayForecast();
