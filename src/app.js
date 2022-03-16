@@ -19,9 +19,10 @@ let minutes = now.getMinutes();
 
 newDate.innerHTML = `${day} ${hour}: ${minutes}`;
 
-// Forecast
+// Forecast API
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Thrusday", "Friday", "Saturday", "Sunday", "Monday"];
@@ -42,6 +43,12 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
+  let apiURl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURl).then(displayForecast);
 }
 
 // Connection API
@@ -79,6 +86,8 @@ function showTemperature(response) {
     "src",
     `img/icons/${response.data.weather[0].icon}.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -147,5 +156,3 @@ cityFormButton.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#buttonPin");
 button.addEventListener("click", navigatorActioning);
-
-displayForecast();
