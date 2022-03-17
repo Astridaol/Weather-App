@@ -25,7 +25,7 @@ function displayForecast(response) {
   console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["Thrusday", "Friday", "Saturday", "Sunday", "Monday"];
+  let days = ["Thrusday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday"];
 
   days.forEach(function (day) {
     forecastHTML =
@@ -102,7 +102,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search();
+search("Cirencester");
 
 //DefaultTempName
 function defaultTemp(position) {
