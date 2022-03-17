@@ -104,16 +104,6 @@ function handleSubmit(event) {
 
 search("Cirencester");
 
-//DefaultTempName
-function defaultTemp(position) {
-  let Cirenlatitude = 51.7197711;
-  let Cirenlongitude = -1.9648097;
-  let apiKey = "b6c67be58b150db2feea7b3504a35bd6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?&lat=${Cirenlatitude}&lon=${Cirenlongitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
-}
-defaultTemp();
-
 //CurrentInformation
 
 function showPlaceTemp(position) {
