@@ -104,7 +104,7 @@ a:hover {
 }
 
 img {
-  position: absolute;
+  position: relative;
 }
 
 .iconWeatherFuture {
@@ -116,9 +116,10 @@ img {
   font-size: 15px;
   margin-top: 70px;
   text-align: center;
-  background-color: whitesmoke;
+  background-color: #4e3e33;
   padding: 8px;
   border-radius: 25px;
+  color: white;
 }
 
 .searchButton {
