@@ -113,13 +113,16 @@ img {
 }
 
 .weather-forecast {
+  position: relative;
   font-size: 15px;
   margin-top: 70px;
   text-align: center;
   background-color: #4e3e33;
   padding: 8px;
-  border-radius: 25px;
+  border-radius: 30px;
   color: white;
+  border-style: solid;
+  border-width: 2px;
 }
 
 .searchButton {
@@ -133,6 +136,6 @@ img {
   margin: 0 auto;
   color: white;
   text-align: center;
-  padding: 40px;
+  padding: 20px;
   font-size: 12px;
 }
